@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5</title>
+</head>
+<body>
+    <script>
+        numero1=prompt('Informe o primeiro valor: ');
+    let numero2=prompt('Informe o segundo valor: ');
+    //alert(numero1.indexOf(' '));
+    
+    if (isNaN(numero1) || isNaN(numero2)||numero1=='' ||numero2==''){
+        alert('Informe apenas números!');
+    } else if (numero1.indexOf(' ') != -1 || numero2.indexOf(' ') != -1){
+        alert('Informe apenas números!');}
+    else{
+        numero1=parseFloat(numero1);//Converte uma string para float
+        numero2=parseFloat(numero2);
+        resultado=numero1+numero2;
+        alert('O resultado da adição é: '+resultado);//Mostra a soma
+    }
+    //alert('O resultado da adição é '+numero1+numero2);//Concatenou as variáveis
+    </script> 
+</body>
+</html>
