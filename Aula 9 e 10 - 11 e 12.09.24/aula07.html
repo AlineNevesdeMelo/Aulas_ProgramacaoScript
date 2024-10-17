@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7</title>
+    <script type="text/javascript">
+        //Função de verificação dos dados de entrada
+        function verificarNumero(numero){
+            if (!isNaN(numero) && numero!='' && numero.indexOf(' ')==-1){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //Função de cálculo do juros
+        function calculoJuros(valor, juros){
+            valor=parseFloat(valor);
+            juros=parseFloat(juros);
+            return valor+valor*(juros/100);
+        }
+
+        /*Declaração das variáveis
+        let valor = prompt('Informe o valor: ');
+        let juros = prompt('Informe o juro a ser dalculado (Ex: 15 para 15%): ');
+
+        if (verificarNumero(valor) && verificarNumero(juros)){
+            alert('Os valores são números!');
+            alert('O valor acrescido de juros é: '+calculoJuros(valor, juros));
+        } else {
+            alert('Informe apenas números!');
+        }*/
+
+        // Chamar função ao carregar a página
+        window.onload = function() {
+            // Chamar função ao clicar no botão "Calcular"
+            document.getElementById("btnCalcular").onclick = function() {
+                // Pegar os valores dos input e guardar nas variáveis
+                let valor = document.getElementById("valor").value;
+                let juros = document.getElementById("juros").value;
+
+                // Verificar se são números
+                if (verificarValor(valor) && verificarValor(juros)) {
+                    // Escrever o resultado dentro do parágrafo
+                    document.getElementById("lblResultado").innerHTML = "Resultado: " + calcularJuros(valor, juros);
+                }
+                else {
+                    alert('Os valores não são números');
+                }
+
+            };
+        }
+    </script>
+</head>
+<body>
+     <h1>Cálculo de Juros</h1>
+
+            <!-- Inputs das notas -->
+            <p><input type="number" placeholder="Valor" id="valor"></p>
+            <p><input type="number" placeholder="Taxa de juros" id="juros"></p>
+
+            <!-- Botão para calcular -->
+            <button id="btnCalcular">Calcular</button>
+            
+            <!-- Parágrafo do resultado -->
+            <p id="lblResultado">Resultado:</p>
+</body>
+</html>

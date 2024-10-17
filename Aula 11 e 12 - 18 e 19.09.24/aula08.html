@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="aula08.css" />
+    <title>Aula 8 - Orientação a Objeto</title>
+    <script type="text/javascript">
+      class Contato {
+        constructor(nome, telefone, celular, email) {
+          this.nome = nome;
+          this.telefone = telefone;
+          this.celular = celular;
+          this.email = email;
+        }
+      }
+      //Função para acrescentar os valores de contato a uma lista no html
+      function listarContatos(lista) {
+        let auxHtml = "";
+        for (let i = 0; i < lista.length; i++) {
+          auxHtml +=
+            "<li>" +
+            "<br>Nome: " +
+            lista[i].nome +
+            "<br>Telefone: " +
+            lista[i].telefone +
+            "<br>Celular: " +
+            lista[i].celular +
+            "<br>Email: " +
+            lista[i].email +
+            "</li>";
+        }
+        return auxHtml;
+      }
+
+      /*let contato1=new Contato('Joaquina','1111','99999');//primeira variável contato
+        let contato2=new Contato('Josué','2222','88888');*/
+      let listaContato = []; //Array
+
+      window.onload = function () {
+        document.getElementById("frmContato").onsubmit = function (evento) {
+          evento.preventDefault(); //Evita que a página recarregue depois de clicar no botão - CANCELA A FUNÇÃO PADRÃO DO EVENTO
+          let nome = document.getElementById("nome").value;
+          let telefone = document.getElementById("telefone").value;
+          let celular = document.getElementById("celular").value;
+          let email = document.getElementById("email").value;
+          let novoContato = new Contato(nome, telefone, celular, email);
+          listaContato.push(novoContato);
+          document.getElementById("lista").innerHTML =
+            listarContatos(listaContato);
+          //Para limpar os campos de entrada
+          document.getElementById("nome").value = "";
+          document.getElementById("telefone").value = "";
+          document.getElementById("celular").value = "";
+          document.getElementById("email").value = "";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Lista de Contatos</h1>
+    </header>
+    <main>
+      <form id="frmContato" action="#" method="post">
+        <input type="text" id="nome" placeholder="Insira o seu nome" />
+        <br /><br />
+        <input type="text" id="telefone" placeholder="Insira o seu telefone" />
+        <br /><br />
+        <input type="text" id="celular" placeholder="Insira o seu celular" />
+        <br /><br />
+        <input type="text" id="email" placeholder="Insira o seu email" />
+        <br /><br />
+        <button id="btnAdicionar">Adicionar</button>
+      </form>
+      <ul id="lista"></ul>
+    </main>
+    <footer>
+      <p><b>Programação de Scripts &copy;</b></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 - Framework Vue.js</title>
+    <script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="Tarefa" v-model="tarefa" @keypress.enter="adicionar()">
+        <p>{{tarefa}}</p> <!--Caso eu queira mostrar o que o usuário está digitando-->
+        <button @click="adicionar()">Adicionar Tarefa</button>
+        <!--o @ cria um evento-->
+        <button @click="limpar()">Limpar Lista</button>
+        <table border="1">
+            <tr v-for="(item, index) in listaTarefas">
+                <td>{{index}}<!--o index mostra o numero do item na lista--></td><!--Coluna da tabela-->
+                <td>{{item}}</td>
+            </tr><!--Linha da tabela-->
+        </table>
+    </div>
+    <script type="text/javascript">
+        //Declaração da variável/objeto.
+        var app = new Vue({
+            el: "#app", //Propriedade elemento.
+            data: {tarefa:"", listaTarefas:[]}, //Propriedade de dados.
+            methods:{
+                adicionar: function(){
+                    this.listaTarefas.push(this.tarefa); //This relaciona a variável criada no objeto com a função. Insere na linha da tabela.
+                    this.tarefa="";//Limpa a tarefa digitada no input depois de adicionada.
+                },
+                limpar: function(){
+                    this.listaTarefas=[];//Limpa o vetor, ou seja, limpa a tabela.
+                }
+            }//Vou criar as funções
+        }) //Objeto do tipo Vue
+    </script>
+</body>
+</html>

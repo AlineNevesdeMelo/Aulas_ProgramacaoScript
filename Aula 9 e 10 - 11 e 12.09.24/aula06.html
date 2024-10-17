@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6 - Funções</title>
+    <script type="text/javascript">
+        //Vamos declarar as funções
+        function verificarNumero(numero){
+            if (!isNaN(numero) && numero!='' && numero.indexOf(' ')==-1){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //Função para calcular a média
+        function media(valor1, valor2){
+            valor1=parseFloat(valor1);
+            valor2=parseFloat(valor2);
+            return (valor1+valor2)/2;
+        }
+
+        //Declaração das variáveis de entrada de dados
+        let numero1 = prompt('Informe o primeiro número: ');
+        let numero2 = prompt('Informe o segundo número: ');
+
+        //Verficar se os valores inseridos são números
+        if (verificarNumero(numero1) && verificarNumero(numero2)){
+            alert('Os valores são números!');
+            alert('A média é '+media(numero1, numero2));//Mostra a média dos valores nas variáveis.
+            //alert('A média é '+media(7,9)); //Mostra a média dos valores que eu estabeleci diretamente.
+        } else {
+            alert('Informe apenas números!');
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculo Média</h1>
+    <input type="number" placeholder="Nota 1" />
+    <br> <!--Pular linha-->
+    <br> <!--Pular linha-->
+    <input type="number" placeholder="Nota 2" />
+    <br> <!--Pular linha-->
+    <br> <!--Pular linha-->
+    <button>Calcular</button>
+    <p>Resultado:</p>
+</body>
+</html>

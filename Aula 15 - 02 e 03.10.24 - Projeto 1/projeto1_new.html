@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto 1 - Programação Scripts</title>
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style2.css"> <!-- Link do CSS -->
+ 
+<script type="text/javascript">
+        window.onload = function(){
+            document.getElementById("btn-pergunta1").onclick = function() {
+                document.getElementById("tabela").innerHTML += "<tr><th>Quais são as principais características da linguagem JavaScript?</th><th>JavaScript é uma linguagem de programação usada para deixar páginas web interativas. Ela permite modificar HTML e CSS.</th></tr>";
+            }
+ 
+            document.getElementById("btn-pergunta2").onclick = function() {
+                document.getElementById("tabela").innerHTML += "<tr><th>Quais são as principais características de eventos na Linguagem JavaScript?</th><th>Eventos em JavaScript são ações no navegador, como cliques ou teclas pressionadas. Eles podem ser controlados com funções chamadas event listeners, permitindo interações dinâmicas com o usuário.</th></tr>";
+            }
+        document.getElementById("btn-limpar").onclick=function(){
+            document.getElementById("tabela").innerHTML = "<tr><th>PERGUNTA</th><th>RESPOSTA</th></tr>";
+        }
+        }
+</script>
+</head>
+<body>
+<main>
+<section class="card-login">
+<h1>Projeto 1 - Programação Scripts</h1>
+<h2>Clique em uma das perguntas para ver sua respectiva resposta.</h2>
+<button id="btn-pergunta1">Quais são as principais características da linguagem JavaScript?</button>
+<button id="btn-pergunta2">Quais são as principais características de eventos na Linguagem JavaScript?</button>
+<button id="btn-limpar">LIMPAR RESPOSTAS</button>
+</section>
+ 
+        <section class="lista-card"></section>
+<br><br>
+<table id="tabela">
+<tr>
+<th class="titulo">PERGUNTA</th>
+<th class="titulo">RESPOSTA</th>
+</tr>
+</table>
+</main>
+<footer>
+    Site desenvolvido para disciplina de Programação Scripts &copy;
+  </footer>
+</body>
+</html>
